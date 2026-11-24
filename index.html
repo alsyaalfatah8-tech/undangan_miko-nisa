@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e9ede4">
+<title>The Wedding of Miko & Nisa</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sage:#718574;
+  --dark:#354B3D;
+  --cream:#F7F4EC;
+  --paper:#FFFDF8;
+  --gold:#C2A16D;
+  --ink:#343D34;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.7;
+  letter-spacing:.01em;
+}
+
+body.locked {
+  overflow:hidden;
+}
+
+h1,h2,h3 {
+  font-family:'Playfair Display',serif;
+}
+
+section {
+  padding:clamp(65px,9vw,110px) 22px;
+}
+
+.wrap {
+  max-width:1050px;
+  margin:auto;
+  text-align:center;
+}
+
+.kicker {
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+h2 {
+  color:var(--dark);
+  font-size:clamp(30px,5vw,48px);
+  font-weight:500;
+  margin:12px 0 20px;
+}
+
+.lead {
+  max-width:650px;
+  margin:auto;
+  color:#777;
+}
+
+/* COVER */
+
+.cover {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:25px;
+  color:white;
+  background:
+    linear-gradient(rgba(31,49,38,.62),rgba(31,49,38,.72)),
+    url('assets/foto-sampul.jpg') center/cover;
+  transition:.7s;
+}
+
+.cover.hidden {
+  opacity:0;
+  visibility:hidden;
+}
+
+.cover::before {
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(223,205,169,.75);
+  pointer-events:none;
+}
+
+.cover > div {
+  position:relative;
+  max-width:560px;
+  padding:45px 28px;
+}
+
+.cover h1 {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(68px,10vw,100px);
+  line-height:1.1;
+  margin:25px 0;
+  color:#fff8e9;
+  font-weight:400;
+  text-shadow:0 4px 18px #0005;
+}
+
+.cover p {
+  margin:10px 0;
+}
+
+.cover .guest {
+  display:inline-block;
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  margin:20px;
+  padding:7px 22px;
+  border-top:1px solid #dfcda9;
+  border-bottom:1px solid #dfcda9;
+}
+
+/* BUTTON */
+
+.btn {
+  display:inline-block;
+  padding:13px 27px;
+  border:1px solid var(--gold);
+  border-radius:50px;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.btn:hover {
+  background:var(--gold);
+  border-color:var(--gold);
+  color:white;
+  transform:translateY(-3px);
+  box-shadow:0 7px 18px #0002;
+}
+
+.btn-primary {
+  background:var(--dark);
+  color:white;
+}
+
+/* NAVIGATION */
+
+nav {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:20;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:clamp(12px,3vw,30px);
+  padding:13px 18px;
+  background:rgba(255,253,248,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #c2a16d55;
+  box-shadow:0 5px 22px rgba(35,55,42,.05);
+}
+
+nav a {
+  text-decoration:none;
+  color:var(--dark);
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:500;
+  transition:.3s;
+}
+
+nav a:hover {
+  color:var(--gold);
+  transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero {
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:125px 20px 75px;
+  color:white;
+  background:
+    linear-gradient(rgba(35,55,42,.48),rgba(35,55,42,.72)),
+    url('assets/foto-sampul.jpg') center/cover;
+}
+
+.hero > div {
+  width:min(100%,760px);
+  padding:35px 25px;
+  border-top:1px solid rgba(223,205,169,.75);
+  border-bottom:1px solid rgba(223,205,169,.75);
+}
+
+.hero h1 {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(68px,11vw,112px);
+  line-height:1.05;
+  font-weight:400;
+  margin:12px 0;
+  text-shadow:0 4px 18px #0005;
+}
+
+.hero .amp {
+  font-family:'Playfair Display',serif;
+  color:#dfcda9;
+}
+
+.hero p {
+  margin:15px auto;
+  letter-spacing:2px;
+  font-size:12px;
+}
+
+.hero-photo {
+  width:clamp(150px,22vw,205px);
+  height:clamp(185px,27vw,250px);
+  object-fit:cover;
+  display:block;
+  margin:20px auto;
+  border-radius:110px 110px 5px 5px;
+  border:2px solid #dfcda9;
+  padding:5px;
+  opacity:1;
+  box-shadow:0 12px 35px #0004;
+  transition:.5s;
+}
+
+.hero-photo:hover {
+  transform:scale(1.04);
+}
+
+.ornament {
+  color:#dfcda9;
+  font-size:28px;
+  margin:20px;
+}
+
+/* MEMPELAI */
+
+.intro {
+  background:var(--paper);
+  position:relative;
+}
+
+.intro::before {
+  content:"✧";
+  display:block;
+  color:var(--gold);
+  font-size:22px;
+  margin:0 auto 22px;
+}
+
+.couple {
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:clamp(12px,4vw,45px);
+  max-width:800px;
+  margin:50px auto 0;
+}
+
+.person {
+  padding:22px 18px 28px;
+  background:var(--cream);
+  border:1px solid #c2a16d44;
+}
+
+.person img {
+  width:100%;
+  max-width:260px;
+  height:340px;
+  object-fit:cover;
+  border-radius:140px 140px 12px 12px;
+  border:6px solid var(--paper);
+  outline:1px solid #c2a16d88;
+  box-shadow:0 8px 25px #3f554622;
+  transition:transform .4s;
+}
+
+.person img:hover {
+  transform:translateY(-6px);
+}
+
+.person h3 {
+  font-size:30px;
+  color:var(--dark);
+  margin:15px 0 5px;
+}
+
+.ampersand {
+  font-family:'Great Vibes',cursive;
+  font-size:58px;
+  color:var(--gold);
+}
+
+.arabic {
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  color:var(--dark);
+  margin:25px;
+}
+
+/* QUOTE */
+
+.quote {
+  background:#e9ede4;
+  border-top:1px solid #71857433;
+  border-bottom:1px solid #71857433;
+}
+
+.quote .wrap {
+  max-width:780px;
+}
+
+blockquote {
+  max-width:700px;
+  margin:25px auto;
+  padding:15px 25px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(20px,3vw,27px);
+  line-height:1.8;
+  font-style:italic;
+  color:var(--dark);
+}
+
+.quote .wrap > p:last-child {
+  color:var(--gold);
+  letter-spacing:3px;
+  font-size:11px;
+}
+
+/* ACARA */
+
+.events {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin:35px auto;
+  max-width:850px;
+}
+
+.event {
+  position:relative;
+  padding:38px 25px;
+  background:var(--paper);
+  border:1px solid #c2a16d66;
+  border-radius:3px;
+  box-shadow:none;
+  transition:.4s;
+}
+
+.event::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:25%;
+  right:25%;
+  height:3px;
+  background:var(--gold);
+}
+
+.event:hover {
+  transform:translateY(-6px);
+}
+
+.event h3 {
+  font-size:30px;
+  color:var(--dark);
+  margin:10px;
+}
+
+.event .time {
+  color:var(--gold);
+  font-weight:bold;
+}
+
+.countdown {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.count-box {
+  min-width:88px;
+  background:var(--dark);
+  color:white;
+  padding:15px 12px;
+  border-radius:3px;
+}
+
+.count-box strong {
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+}
+
+.count-box span {
+  font-size:11px;
+  text-transform:uppercase;
+}
+
+/* LOKASI */
+
+.location {
+  background:
+    linear-gradient(rgba(40,61,47,.94),rgba(40,61,47,.94)),
+    url('assets/foto-sampul.jpg') center/cover;
+  color:white;
+  border-top:5px solid var(--gold);
+  border-bottom:5px solid var(--gold);
+}
+
+.location h2 {
+  color:var(--paper);
+}
+
+.location .wrap {
+  max-width:760px;
+}
+
+.location p {
+  margin:15px auto 25px;
+}
+
+/* PREWEDDING */
+
+.prewedding {
+  background:var(--cream);
+}
+
+.prewedding-main {
+  position:relative;
+  margin:35px auto 15px;
+  max-width:850px;
+  border:10px solid var(--paper);
+  border-radius:2px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(35,55,42,.12);
+}
+
+.prewedding-main img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:600px;
+  object-fit:contain;
+  cursor:pointer;
+}
+
+.prewedding-caption {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:45px 20px 20px;
+  color:white;
+  text-align:left;
+  background:linear-gradient(transparent,#17251bd9);
+}
+
+.prewedding-caption span {
+  display:block;
+  color:#dfcda9;
+  letter-spacing:4px;
+  font-size:12px;
+}
+
+.prewedding-caption strong {
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  font-style:italic;
+  font-weight:400;
+}
+
+.prewedding-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  max-width:850px;
+  margin:18px auto 0;
+}
+
+.prewedding-grid img {
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  cursor:pointer;
+  border:5px solid var(--paper);
+  outline:1px solid #c2a16d66;
+  border-radius:2px;
+  transition:transform .4s, box-shadow .4s;
+  box-shadow:0 5px 15px #0001;
+}
+
+.prewedding-grid img:hover {
+  transform:scale(1.035);
+  box-shadow:0 10px 25px #0003;
+}
+
+/* PENUTUP */
+
+.closing {
+  background:linear-gradient(180deg,var(--paper),#e9ede4);
+  border-top:1px solid #c2a16d55;
+  padding:90px 20px 75px;
+  text-align:center;
+}
+
+.closing .thankyou-icon {
+  color:var(--gold);
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.closing h2 {
+  font-size:clamp(30px,5vw,43px);
+  margin:15px auto;
+}
+
+.closing .closing-text {
+  max-width:650px;
+  margin:20px auto;
+  color:#777;
+  font-size:15px;
+  line-height:2;
+}
+
+.closing .signature {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(55px,8vw,75px);
+  color:var(--dark);
+  margin:30px 0 10px;
+}
+
+.closing .closing-date {
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:4px;
+  margin-top:15px;
+}
+
+/* FOOTER */
+
+footer {
+  background:linear-gradient(135deg,#354B3D,#24392D);
+  color:#f8f5ed;
+  text-align:center;
+  padding:42px 20px;
+  border-top:4px solid var(--gold);
+}
+
+footer .footer-names {
+  font-family:'Great Vibes',cursive;
+  font-size:42px;
+  color:#dfcda9;
+  margin-bottom:8px;
+}
+
+footer p {
+  font-size:12px;
+  letter-spacing:2px;
+  color:#e8e4d9;
+}
+
+footer .footer-line {
+  width:55px;
+  height:1px;
+  background:var(--gold);
+  margin:18px auto;
+}
+
+footer small {
+  color:#c5c9bd;
+  font-size:11px;
+}
+
+/* MUSIK */
+
+.music-btn {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:30;
+  width:50px;
+  height:50px;
+  border:0;
+  border-radius:50%;
+  background:var(--gold);
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 5px 18px rgba(0,0,0,.18);
+}
+
+.playing {
+  animation:spin 5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+/* LIGHTBOX */
+
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:150;
+  background:rgba(25,36,28,.96);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.modal.open {
+  display:flex;
+}
+
+.modal img {
+  max-width:95%;
+  max-height:85vh;
+  object-fit:contain;
+}
+
+.modal button {
+  position:absolute;
+  top:20px;
+  right:25px;
+  color:white;
+  background:none;
+  border:0;
+  font-size:40px;
+  cursor:pointer;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px) {
+
+  nav {
+    gap:9px 15px;
+    padding:11px 8px;
+    flex-wrap:wrap;
+  }
+
+  nav a {
+    font-size:9px;
+    letter-spacing:.8px;
+  }
+
+  .couple {
+    grid-template-columns:1fr;
+    max-width:390px;
+  }
+
+  .ampersand {
+    line-height:.7;
+    font-size:40px;
+  }
+
+  .person img {
+    height:300px;
+  }
+
+  .events {
+    grid-template-columns:1fr;
+  }
+
+  .prewedding-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .prewedding-grid img {
+    height:180px;
+  }
+
+  .hero > div {
+    padding:28px 12px;
+  }
+
+  .cover::before {
+    inset:10px;
+  }
+}
+
+@media(max-width:380px) {
+
+  .prewedding-grid {
+    grid-template-columns:1fr;
+  }
+
+  .prewedding-grid img {
+    height:240px;
+  }
+
+}
+</style>
+</head>
+
+<body class="locked">
+
+<!-- HALAMAN PEMBUKA -->
+
+<div class="cover" id="cover">
+  <div>
+    <div class="kicker">The Wedding Celebration Of</div>
+
+    <h1>Miko & Nisa</h1>
+
+    <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+
+    <div class="guest" id="guestName">
+      Tamu Undangan
+    </div>
+
+    <p>
+      Dengan penuh rasa syukur, kami mengundang Anda di hari bahagia kami.
+    </p>
+
+    <br>
+
+    <button class="btn" id="openInvitation">
+      ✧ Buka Undangan ✧
+    </button>
+  </div>
+</div>
+
+<!-- NAVIGASI -->
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#mempelai">Mempelai</a>
+  <a href="#acara">Acara</a>
+  <a href="#prewedding">Prewedding</a>
+  <a href="#lokasi">Lokasi</a>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+  <div>
+
+    <div class="kicker" style="color:#dfcda9">
+      The Wedding Of
+    </div>
+
+    <img
+      src="1.jpeg"
+      alt="Foto Miko dan Nisa"
+      class="hero-photo"
+    >
+
+    <div class="ornament">✦ ❧ ✦</div>
+
+    <h1>Miko <span class="amp">&</span> Nisa</h1>
+
+    <p>SABTU, 05 DESEMBER 2026</p>
+
+    <p>Dua hati, satu tujuan, dan satu perjalanan baru.</p>
+
+    <a href="#mempelai" class="btn">
+      Lihat Undangan ↓
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<!-- MEMPELAI -->
+
+<section class="intro" id="mempelai">
+  <div class="wrap">
+
+    <div class="kicker">
+      Assalamu'alaikum Warahmatullahi Wabarakatuh
+    </div>
+
+    <div class="arabic">
+      بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
+    </div>
+
+    <h2>Dengan Memohon Rahmat & Ridho Allah SWT</h2>
+
+    <p class="lead">
+      Merupakan suatu kehormatan dan kebahagiaan bagi kami
+      apabila Bapak/Ibu/Saudara/i berkenan hadir untuk
+      memberikan doa restu kepada kedua mempelai.
+    </p>
+
+    <div class="couple">
+
+      <div class="person">
+        <img src="pre1.jpeg" alt="Mempelai wanita">
+
+        <h3>Riyanisa</h3>
+
+        <p>
+          Putri dari<br>
+          Bapak Tamrin & Ibu Dahlia
+        </p>
+      </div>
+
+      <div class="ampersand">&</div>
+
+      <div class="person">
+        <img src="pre2.jpeg" alt="Mempelai pria">
+
+        <h3>Miko Sundapa</h3>
+
+        <p>
+          Putra dari<br>
+          Bapak Adi & Ibu Jujun
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- UCAPAN -->
+
+<section class="quote">
+  <div class="wrap">
+
+    <div class="kicker">Our Prayer</div>
+
+    <h2>Awal dari Selamanya</h2>
+
+    <blockquote>
+      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
+      menciptakan untukmu pasangan hidup dari jenismu sendiri,
+      supaya kamu merasa tenteram di sampingnya."
+    </blockquote>
+
+    <p>QS. Ar-Rum: 21</p>
+
+  </div>
+</section>
+
+<!-- ACARA -->
+
+<section id="acara">
+  <div class="wrap">
+
+    <div class="kicker">Save The Date</div>
+
+    <h2>Waktu & Tempat</h2>
+
+    <p class="lead">
+      Dengan memohon doa restu, kami bermaksud
+      menyelenggarakan acara pernikahan pada:
+    </p>
+
+    <div class="events">
+
+      <div class="event">
+        <div class="ornament">❧</div>
+
+        <h3>Akad Nikah</h3>
+
+        <p class="time">07.00 WIB - Selesai</p>
+
+        <p>Sabtu, 05 Desember 2026</p>
+      </div>
+
+      <div class="event">
+        <div class="ornament">✧</div>
+
+        <h3>Resepsi</h3>
+
+        <p class="time">10.00 WIB - selesai</p>
+
+        <p>Sabtu, 05 Desember 2026</p>
+      </div>
+
+    </div>
+
+    <div class="kicker">Countdown</div>
+
+    <div class="countdown">
+
+      <div class="count-box">
+        <strong id="days">00</strong>
+        <span>Hari</span>
+      </div>
+
+      <div class="count-box">
+        <strong id="hours">00</strong>
+        <span>Jam</span>
+      </div>
+
+      <div class="count-box">
+        <strong id="minutes">00</strong>
+        <span>Menit</span>
+      </div>
+
+      <div class="count-box">
+        <strong id="seconds">00</strong>
+        <span>Detik</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- LOKASI -->
+
+<section class="location" id="lokasi">
+  <div class="wrap">
+
+    <div class="kicker" style="color:#dfcda9">
+      Wedding Location
+    </div>
+
+    <h2>Lokasi Acara</h2>
+
+    <p>
+      <strong>Alamat Liwet Asep Stroberi (Asstro) Kadungora</strong>
+      <br>
+      berada di Jl. Raya Kadungora No. 245, Talagasari,
+      Kec. Leles, Kabupaten Garut, Jawa Barat 44153
+    </p>
+
+    <a
+      class="btn"
+      href="https://maps.app.goo.gl/mmeuN7SAww9nzWBJ8"
+      target="_blank"
+      rel="noopener"
+    >
+      Buka Google Maps ↗
+    </a>
+
+  </div>
+</section>
+
+<!-- PREWEDDING -->
+
+<section class="prewedding" id="prewedding">
+  <div class="wrap">
+
+    <div class="kicker">
+      The Moments Before Forever
+    </div>
+
+    <h2>Our Prewedding</h2>
+
+    <p class="lead">
+      Sepenggal cerita, tawa, dan kenangan indah
+      sebelum kami memulai perjalanan seumur hidup bersama.
+    </p>
+
+    <div class="prewedding-main">
+
+      <img src="5.jpeg" alt="Foto utama">
+
+      <div class="prewedding-caption">
+        <span>MIKO & NISA</span>
+
+        <strong>
+          One story, one love, one forever.
+        </strong>
+      </div>
+
+    </div>
+
+    <div class="prewedding-grid">
+
+      <img src="1.jpeg" alt="Prewedding 1">
+
+      <img src="2.jpeg" alt="Prewedding 2">
+
+      <img src="baru2.jpeg" alt="Prewedding 3">
+
+      <img src="4.jpeg" alt="Prewedding 4">
+
+    </div>
+
+  </div>
+</section>
+
+<!-- THANK YOU -->
+
+<section class="closing">
+  <div class="wrap">
+
+    <div class="thankyou-icon">✧ ♡ ✧</div>
+
+    <div class="kicker">
+      With Love & Gratitude
+    </div>
+
+    <h2>Terima Kasih</h2>
+
+    <p class="closing-text">
+      Merupakan suatu kebahagiaan dan kehormatan
+      bagi kami apabila Bapak/Ibu/Saudara/i
+      berkenan hadir dan memberikan doa restu
+      di hari bahagia kami.
+
+      <br><br>
+
+      Terima kasih atas segala doa, perhatian,
+      dan kasih sayang yang diberikan kepada kami.
+      Semoga kebaikan Anda dibalas dengan
+      keberkahan dan kebahagiaan.
+    </p>
+
+    <div class="thankyou-icon">❧</div>
+
+    <p class="closing-text">
+      Wassalamu'alaikum Warahmatullahi Wabarakatuh
+    </p>
+
+    <div class="signature">
+      Miko & Nisa
+    </div>
+
+    <div class="closing-date">
+      05 · 12 · 2026
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-names">
+    Miko & Nisa
+  </div>
+
+  <p>05 DECEMBER 2026</p>
+
+  <div class="footer-line"></div>
+
+  <small>
+    Made with love ♡
+    <br>
+    © 2026 Miko & Nisa. Aysla AFK.
+  </small>
+
+</footer>
+
+<!-- MUSIK -->
+
+<audio
+  id="backsound"
+  src="musik-pernikahan.mp3.mp3"
+  loop
+></audio>
+
+<button
+  class="music-btn"
+  id="musicButton"
+  aria-label="Putar musik"
+>
+  ♫
+</button>
+
+<!-- LIGHTBOX -->
+
+<div class="modal" id="modal">
+
+  <button onclick="closeModal()">×</button>
+
+  <img
+    id="modalImage"
+    src=""
+    alt="Foto diperbesar"
+  >
+
+</div>
+
+<script>
+
+// DATA UNDANGAN
+
+const CONFIG = {
+  namaWanita: "Riyanisa",
+  namaPria: "Miko Sundapa",
+  tanggal: "2026-12-05T08:00:00+07:00",
+  rekening: "1234567890"
+};
+
+// NAMA TAMU
+
+const params = new URLSearchParams(location.search);
+const guest = params.get("to");
+
+if (guest) {
+  document.getElementById("guestName").textContent =
+    guest.replace(/[<>]/g, "").slice(0,70);
+}
+
+// BUKA UNDANGAN
+
+const audio = document.getElementById("backsound");
+const musicButton = document.getElementById("musicButton");
+
+document.getElementById("openInvitation")
+.addEventListener("click", async function() {
+
+  document.getElementById("cover").classList.add("hidden");
+
+  document.body.classList.remove("locked");
+
+  try {
+    await audio.play();
+
+    musicButton.classList.add("playing");
+    musicButton.textContent = "Ⅱ";
+
+  } catch(error) {
+    console.log(error);
+  }
+
+});
+
+// TOMBOL MUSIK
+
+musicButton.addEventListener("click", async function() {
+
+  if(audio.paused) {
+
+    try {
+      await audio.play();
+
+      musicButton.classList.add("playing");
+      musicButton.textContent = "Ⅱ";
+
+    } catch(error) {
+      console.log(error);
+    }
+
+  } else {
+
+    audio.pause();
+
+    musicButton.classList.remove("playing");
+    musicButton.textContent = "♫";
+
+  }
+
+});
+
+// COUNTDOWN
+
+const weddingDate = new Date(CONFIG.tanggal).getTime();
+
+function updateCountdown() {
+
+  const distance = weddingDate - Date.now();
+
+  const days = Math.max(0, Math.floor(distance / 86400000));
+
+  const hours = Math.max(
+    0,
+    Math.floor((distance % 86400000) / 3600000)
+  );
+
+  const minutes = Math.max(
+    0,
+    Math.floor((distance % 3600000) / 60000)
+  );
+
+  const seconds = Math.max(
+    0,
+    Math.floor((distance % 60000) / 1000)
+  );
+
+  document.getElementById("days").textContent = days;
+
+  document.getElementById("hours").textContent = hours;
+
+  document.getElementById("minutes").textContent = minutes;
+
+  document.getElementById("seconds").textContent = seconds;
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+// LIGHTBOX FOTO PREWEDDING
+
+const modal = document.getElementById("modal");
+
+const modalImage = document.getElementById("modalImage");
+
+document.querySelectorAll(
+  ".prewedding-grid img, .prewedding-main img"
+).forEach(img => {
+
+  img.addEventListener("click", function() {
+
+    modalImage.src = this.src;
+
+    modal.classList.add("open");
+
+  });
+
+});
+
+// TUTUP LIGHTBOX
+
+function closeModal() {
+
+  modal.classList.remove("open");
+
+  modalImage.src = "";
+
+}
+
+modal.addEventListener("click", function(event) {
+
+  if(event.target === modal) {
+    closeModal();
+  }
+
+});
+
+document.addEventListener("keydown", function(event) {
+
+  if(event.key === "Escape") {
+    closeModal();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
